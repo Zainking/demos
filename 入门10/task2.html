@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			color: #888;
+			line-height: 2;
+		}
+		form{
+			width: 600px;
+			margin: 0 auto;
+			box-shadow: 5px 5px 10px #888;
+			padding: 20px;
+			padding-top: 0;
+			margin-top: 50px;
+		}
+		input[type="text"],textarea{
+			display: block;
+			border:none;
+			border-bottom: 1px solid #888;
+		}
+		h2{
+			color: #fff;
+			background-color: #009688;
+			position: relative;
+			left: -20px;
+			width: 640px;
+			text-indent: 20px;
+			padding: 15px 0;
+		}
+		table,input[type="text"],textarea{
+            width: 100%;
+		}
+		input[type="submit"]{
+			border: none;
+			background-color: #009688;
+			color: #fff;
+			padding: 5px 20px;
+		}
+	</style>
+</head>
+<body>
+	<form id="main">
+		<h2>信息收集表</h2>
+		<label for="name">姓名</label>
+		<input type="text" id="name">
+		<label for="qq">QQ</label>
+		<input type="text" id="qq">
+		<label for="comment">想说的话</label>
+		<textarea id="comment"></textarea>
+		<table>
+			<tr>
+				<td><input type="checkbox" name="sauce">Milk</td>
+				<td><input type="radio" name="sex">Male</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="sauce">Sugar</td>
+				<td><input type="radio" name="sex">Female</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="sauce">Lemon</td>
+				<td></td>
+			</tr>
+		</table>
+		<input type="submit" value="提交">
+	</form>
+</body>
+</html>

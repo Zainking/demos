@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task4</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			width: 600px;
+			margin: 10px auto;
+		}
+		ul{
+			list-style: none;
+			box-shadow: 5px 5px 10px #888;
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		li{
+			padding: 10px 15px;
+		}
+		li:hover{
+			background-color: #ccc;
+		}
+		#firstNav{
+			display: inline-block;
+			background-color: #eee;
+			position: relative;
+			width: 100%;
+		}
+		#firstNav>li{
+            float: left;
+		}
+		#firstNav>li:nth-child(3):hover #secondNav{
+			display: block;
+		}
+		#secondNav{
+			background-color: #fff;
+			position: absolute;
+			margin: 10px 0 0 -15px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<ul id="firstNav">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">作品</a></li>
+			<li><a href="#">更多</a>
+	            <ul id="secondNav">
+	            	<li><a href="#">Github</a></li>
+	            	<li><a href="#">知乎</a></li>
+	            	<li><a href="#">更多</a></li>
+	            </ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

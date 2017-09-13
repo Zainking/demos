@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task3</title>
+	<style>
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		#main{
+			width: 600px;
+			margin: 0 auto;
+		}
+		#modalShade{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.4);
+			top: 0;
+			left: 0;
+		}
+		#modal{
+			position: absolute;
+			width:400px;
+			height:200px;
+			left: 50%;
+			top: 50%;
+            margin-left: -200px;
+            margin-top: -100px;
+            background-color: #fff;
+            box-shadow: 5px 5px 10px #888;
+		}
+		h3,#modalFoot{
+			background-color: #009688;
+			color: #fff;
+			padding: 10px 15px;
+		}
+		#modal p{
+			padding: 15px;
+			line-height: 2;
+		}
+		#modalFoot{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		#modal h3 a{
+			float: right;
+			color: #fff;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+    <div id="main">
+    	<h2>页面内容</h2>
+		<h2>页面内容</h2>
+		<h2>页面内容</h2>
+		<h2>页面内容</h2>
+    </div>
+    <div id="modalShade">
+    	<div id="modal">
+    		<h3>头部 <a href="#">X</a></h3>
+    		<p>这是内容<br>这是内容</p>
+    		<div id="modalFoot">尾部</div>
+    	</div>
+    </div>
+</body>
+</html>
