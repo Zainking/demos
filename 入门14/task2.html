@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2</title>
+	<style>
+		@font-face {font-family: "iconfont";
+		  src: url('iconfont.eot?t=1505459180790'); /* IE9*/
+		  src: url('iconfont.eot?t=1505459180790#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		  url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAVAAAsAAAAAB7gAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kf4Y21hcAAAAYAAAABdAAABhplwBr5nbHlmAAAB4AAAAXIAAAGk0K5QR2hlYWQAAANUAAAALwAAADYO4n3VaGhlYQAAA4QAAAAcAAAAJAfeA4RobXR4AAADoAAAAAwAAAAMC+kAAGxvY2EAAAOsAAAACAAAAAgAdgDSbWF4cAAAA7QAAAAfAAAAIAESAF1uYW1lAAAD1AAAAUUAAAJtPlT+fXBvc3QAAAUcAAAAIwAAADTM69t0eJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2Bk/sE4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVDzjY27438AQw9zA0AAUZgTJAQAkZgx6eJzFkMENgDAMAy9t6QOhzsGDgXgxRyfuGsWE8mCCWnKsOJYSBViAKB5iArswHpxyzf3I6n7yTJYagdpK7+o/VUSz7BpUMtNg81b/sXndR6evUAd1YisvCTdxDwvHAAAAeJwtz71OwlAUB/Bz7vXegpRW+nVLkY9SaTUqiaXAYMTFReNg4uToA+jK4tDFxMHBBwAGY+JLMMFTMBmji+9gqhf05Az/f3J+wwEG8PNOp9QFE7bhAE7gAgD5LjY1UkU/StpkF22f2cLSaBREvhI02/QIRZNbTtxLQsEVrqOGNez4cS9qkwi7yYAcYuxUEcsV79JobRr0CdfdqHafnZFntOvBpj7Yz073jq24YeaGqmGUDeMxxxnLEbKma3gjnDzLr/PshemePa3vkDqq5cg7vyo2Ksb1Q3JbbYk8YpqiWWlor8clryT3znNMo6xsFHOuVwy2LBx+FlxTrYYfIIfKX9M1oCkUQEBn+ScoDoge9EOgIUQyyMqBBt02NrliBxpajujYNYx7/W5ngElIYJG9cY7+YoE+Y9nbYp5ljCGZz5DInuEYhStwrOq6+h8Luk5TLk8llacr+n0kzWz+Z+Yz6b5GSzJakYkkhckyAvwCakNP3gAAeJxjYGRgYABiaY/j0+L5bb4ycLMwgMDVh3PeIOj/DSwMzA1ALgcDE0gUAEzWC/0AeJxjYGRgYG7438AQw8IAAkCSkQEVMAMARwkCbAQAAAAD6QAABAAAAAAAAAAAdgDSeJxjYGRgYGBmCGRgZQABJiDmAkIGhv9gPgMAEPcBcAB4nGWPTU7DMBCFX/oHpBKqqGCH5AViASj9EatuWFRq911036ZOmyqJI8et1ANwHo7ACTgC3IA78EgnmzaWx9+8eWNPANzgBx6O3y33kT1cMjtyDRe4F65TfxBukF+Em2jjVbhF/U3YxzOmwm10YXmD17hi9oR3YQ8dfAjXcI1P4Tr1L+EG+Vu4iTv8CrfQ8erCPuZeV7iNRy/2x1YvnF6p5UHFockikzm/gple75KFrdLqnGtbxCZTg6BfSVOdaVvdU+zXQ+ciFVmTqgmrOkmMyq3Z6tAFG+fyUa8XiR6EJuVYY/62xgKOcQWFJQ6MMUIYZIjK6Og7VWb0r7FDwl57Vj3N53RbFNT/c4UBAvTPXFO6stJ5Ok+BPV8bUnV0K27LnpQ0kV7NSRKyQl7WtlRC6gE2ZVeOEXpc0Yk/KGdI/wAJWm7IAAAAeJxjYGKAAC4G7ICZkYmRmZGFgbGCLSszMSMxn4EBABVzAwcA') format('woff'),
+		  url('iconfont.ttf?t=1505459180790') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+		  url('iconfont.svg?t=1505459180790#iconfont') format('svg'); /* iOS 4.1- */
+		}
+
+		s{
+		  font-family:"iconfont" !important;
+		  font-size:16px;
+		  font-style:normal;
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		  text-decoration: none;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+			line-height: 2;
+			word-wrap: break-word;
+		}
+		body{
+			background-color: #ccc;
+		}
+		ul{
+			list-style: none;
+		}
+		#main{
+			width: 800px;
+			margin: 10px auto;
+			background-color: #fff;
+			box-shadow: 5px 5px 10px #888;
+			padding: 50px 30px;
+			overflow: auto;
+		}
+		#name img{
+			width: 200px;
+			border-radius: 50%;
+			border: 2px solid;
+			float: left;
+		}
+		#name h2{
+			margin-top: 80px;
+			margin-left: 230px;
+		}
+		#name p{
+			margin-left: 230px;
+			font-weight: 700;
+		}
+		#name{
+			overflow: auto;
+			float: left;
+			margin-left: 20px;
+		}
+		#contacts{
+			float: right;
+			margin-right: 40px;
+			max-width: 270px;
+		}
+		#contacts ul{
+			margin-top: 20px;
+		}
+		#contacts strong{
+			display: inline-block;
+			width: 30px;
+		}
+		#contacts h3{
+			border-bottom: 5px solid;
+		}
+		#workexp,#edu{
+			clear: both;
+			padding: 30px 0;
+		}
+		#workexp p,#edu p{
+			margin: 30px 0 0 0;
+		}
+		#workexp li:first-child,#edu li:first-child{
+			margin-top: 30px;
+		}
+		#workexp li,#edu li{
+			padding-left: 50px;
+			border-left: 3px solid #aaa;
+			padding-bottom: 30px
+		}
+		#workexp li:before,#edu li:before{
+			content: "";
+			display: inline-block;
+			border: 10px solid;
+			border-radius: 50%;
+			float: left;
+			margin-left: -62px;
+
+		}
+		#main>div>h3{
+			border-bottom: 3px solid #aaa;
+			width:350px;
+		}
+		time{
+			color: #aaa;
+			font-weight: 400;
+		}
+		#active,#skill{
+			max-width: 370px;
+		}
+		#active ul,#skill ul{
+			padding-left: 50px;
+		}
+		#active s,#skill s{
+			position: relative;
+			left: -30px;
+		}
+		#active h4,#skill h4{
+			text-indent: -1em;
+		}
+		#active{
+			float: left;
+		}
+		#skill{
+			float: right;
+		}
+		#skill div{
+			padding-left: 50px;
+		}
+		#skill h4{
+			width: 150px;
+			display: inline-block;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="name">
+			<img src="http://zain.red/avatar.jpg">
+			<h2>Zainking</h2>
+			<p>Front End Engineer</p>
+		</div>
+		<div id="contacts">
+			<h3>Contacts</h3>
+			<ul>
+				<li><strong>A</strong>室女座超星系团 本星系群 银河系</li>
+				<li><strong>M</strong>13800138000</li>
+				<li><strong>E</strong>XXX@mail.com</li>
+				<li><strong>B</strong>zain.red</li>
+			</ul>
+		</div>
+		<div id="workexp">
+			<h3>WORK EXPERIENCE</h3>
+			<ul>
+				<li>
+					<h4>大银河宇宙大学/<time>2154-2254</time></h4>
+					<p>好吧，其实我不知道我该说点什么，但是既然我开始说了，那就必须得说点什么。你看，虽然我不知道该说点什么，但是我说了这么多，我是不是超级厉害？对！我就是超级厉害，你看你看着超级厉害的我说了这么多，是不是觉得我超级厉害？我知道你知道我超级厉害！哈哈哈！</p>
+				</li>
+				<li>
+					<h4>大银河宇宙大学/<time>2154-2254</time></h4>
+					<p>好吧，其实我不知道我该说点什么，但是既然我开始说了，那就必须得说点什么。你看，虽然我不知道该说点什么，但是我说了这么多，我是不是超级厉害？对！我就是超级厉害，你看你看着超级厉害的我说了这么多，是不是觉得我超级厉害？我知道你知道我超级厉害！哈哈哈！</p>
+				</li>
+				<li>
+					<h4>大银河宇宙大学/<time>2154-2254</time></h4>
+					<p>好吧，其实我不知道我该说点什么，但是既然我开始说了，那就必须得说点什么。你看，虽然我不知道该说点什么，但是我说了这么多，我是不是超级厉害？对！我就是超级厉害，你看你看着超级厉害的我说了这么多，是不是觉得我超级厉害？我知道你知道我超级厉害！哈哈哈！</p>
+				</li>
+				<li>
+					<h4>大银河宇宙大学/<time>2154-2254</time></h4>
+					<p>好吧，其实我不知道我该说点什么，但是既然我开始说了，那就必须得说点什么。你看，虽然我不知道该说点什么，但是我说了这么多，我是不是超级厉害？对！我就是超级厉害，你看你看着超级厉害的我说了这么多，是不是觉得我超级厉害？我知道你知道我超级厉害！哈哈哈！</p>
+				</li>
+			</ul>
+		</div>
+
+		<div id="edu">
+			<h3>EDUCATION</h3>
+			<ul>
+				<li>
+					<h4>大银河宇宙大学/<time>2154-2254</time></h4>
+					<time>我在这学了怎么操纵宇宙飞船</time>
+					<p>好吧，其实我不知道我该说点什么，但是既然我开始说了，那就必须得说点什么。你看，虽然我不知道该说点什么，但是我说了这么多，我是不是超级厉害？对！我就是超级厉害，你看你看着超级厉害的我说了这么多，是不是觉得我超级厉害？我知道你知道我超级厉害！哈哈哈！</p>
+				</li>
+				<li>
+					<h4>大银河宇宙大学/<time>2154-2254</time></h4>
+					<time>我在这学了怎么操纵宇宙飞船</time>
+					<p>好吧，其实我不知道我该说点什么，但是既然我开始说了，那就必须得说点什么。你看，虽然我不知道该说点什么，但是我说了这么多，我是不是超级厉害？对！我就是超级厉害，你看你看着超级厉害的我说了这么多，是不是觉得我超级厉害？我知道你知道我超级厉害！哈哈哈！</p>
+				</li>
+			</ul>
+		</div>
+		<div id="active">
+			<h3>EXTRA CURRICULAR ACTIVITIES</h3>
+			<ul>
+				<li>
+					<h4><s>&#xe60e;</s>拯救地球</h4>
+					<p>其实我曾经是个超级英雄，直到我膝盖上中了一箭。。。。。。。。。。。。。。。。。。</p>
+				</li>
+				<li>
+					<h4><s>&#xe60e;</s>帮老奶奶做按摩</h4>
+					<p>她还夸我做的不错来的，emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>
+				</li>
+			</ul>
+		</div>
+		<div id="skill">
+			<h3>PROFESIONAL SKILL</h3>
+			<div>
+				<h4><s>&#xe60e;</s>HTML/CSS</h4>
+				<h4><s>&#xe60e;</s>HTML/CSS</h4>
+				<h4><s>&#xe60e;</s>HTML/CSS</h4>
+				<h4><s>&#xe60e;</s>HTML/CSS</h4>
+				<h4><s>&#xe60e;</s>HTML/CSS</h4>
+				<h4><s>&#xe60e;</s>HTML/CSS</h4>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
