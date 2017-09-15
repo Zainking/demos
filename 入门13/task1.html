@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task1</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 100px;
+			border:1px solid;
+			margin: 20px auto;
+		}
+		#div1:after{
+			content: "";
+			display: block;
+			height: 0;
+			width: 0;
+			border: 10px solid;
+			border-color: #000 #000 #fff #fff;
+			transform: rotate(-45deg);
+			margin: -10px 0 0 20px;
+		}
+		#div2:after{
+			content: "";
+			display: block;
+			height: 0;
+			width: 0;
+			border: 10px solid;
+			border-color: #f00 #f00 #fff #fff;
+			margin: -1px 0 0 181px;
+		}
+		#div3:after{
+			content: "";
+			display: block;
+			height: 18px;
+			width: 18px;
+			border: 1px solid;
+			border-color: #000 #000 #fff #fff;
+			transform: rotate(-45deg);
+			margin: -10px 0 0 20px;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+</body>
+</html>
