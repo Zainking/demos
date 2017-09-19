@@ -4,6 +4,337 @@
 	<meta charset="UTF-8">
 	<title>Start Project</title>
 	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: "微软雅黑";
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		section{
+			padding: 150px 0;
+			box-sizing: border-box;
+			text-align: center;
+			width: 100%;
+			min-width: 970px;
+		}
+		section>h2{
+			font-size: 2.5em;
+			margin-bottom: 15px;
+		}
+		section>p{
+			font-size: 1em;
+			font-style: italic;
+			color: #777;
+			margin: 20px 0 75px 0;
+		}
+		nav{
+			position: absolute;
+			width: 100%;
+			min-width: 970px;
+			padding: 30px 50px;
+			box-sizing: border-box;
+		}
+		nav h1{
+			color: #fec503;
+			font-size: 2em;
+			display: inline-block;
+			cursor: pointer;
+		}
+		nav ul{
+			float: right;
+			margin: 15px 50px;
+			
+		}
+		nav ul li{
+			float: left;
+			margin: 0 20px;
+		}
+		nav ul li a{
+			color: #fff;
+		}
+		nav ul li a:hover{
+			color: #fec503;
+		}
+		header{
+			background: url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/header-bg.jpg);
+			-webkit-background-size: cover;
+			background-size: cover;
+			width: 100%;
+			min-width: 970px;
+			height: 757px;
+			padding-top: 250px;
+			text-align: center;
+			box-sizing: border-box;
+		}
+		header h2{
+			font-size: 2.5em;
+			color: #fff;
+			font-style: italic;
+		}
+		header h1{
+			font-size: 4.5em;
+			color: #fff;
+			margin-bottom: 50px;
+		}
+		header a{
+			color: #fff;
+			background-color: #fed136;
+			padding: 20px 40px;
+			border-radius: 5px;
+			font-weight: 700;
+		}
+		#services i{
+			width: 112px;
+			height: 112px;
+			background-color: #fec503;
+			display: inline-block;
+			border-radius: 50%;
+			font-size: 57px;
+			text-align: center;
+			line-height: 112px;
+			float: none;
+			box-sizing: border-box;
+		}
+		#services>ul>li{
+			display: inline-block;
+			width: 250px;
+			margin: 0 20px;
+		}
+		#services>ul>li>h4{
+			margin: 15px;
+		}
+		#services>ul>li>p{
+			font-size: 0.9em;
+			color: #777;
+		}
+		#portfolio{
+			background-color: #f7f7f7;
+		}
+		#portfolio>ul{
+			margin-bottom: 20px;
+		}
+		#portfolio>ul>li{
+			display: inline-block;
+			width: 280px;
+			margin: 0 20px;
+			background-color: #fec503;
+			position: relative;
+		}
+		#portfolio>ul>li>img{
+			width: 100%;
+			transition: opacity 0.5s;
+			display: block;
+			position: relative;
+			z-index: 1;
+		}
+		#portfolio>ul>li>img:hover{
+			opacity: 0.1;
+			cursor: pointer;
+
+		}
+		#portfolio>ul>li>h4:before{
+			content: "+";
+			position: absolute;
+			color: #fff;
+			font-size: 150px;
+			top: 0;
+			left: 80px;
+			z-index: 0;
+		}
+		#portfolio>ul>li>h4{
+			padding-top: 25px;
+			background-color: #fff;
+		}
+		#portfolio>ul>li>p{
+			padding-bottom: 25px;
+			color: #777;
+			font-style: italic;
+			font-size: 0.9em;
+			background-color: #fff;
+		}
+		#about ul:before{
+			content: "";
+			height: 890px;
+			border: 1px solid #eee;
+			width: 0;
+			margin-left: -1px;
+			display: inline-block;
+			position: absolute;
+			z-index: -1;
+		}
+		#about img{
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			border: 5px solid #eee;
+		}
+		#about li{
+			overflow: auto;
+			margin: 20px;
+		}
+		#about div{
+			width: 300px;
+		}
+		#about li:nth-child(odd) div{
+			float: left;
+			margin-left: 100px;
+		}
+		#about li:nth-child(odd) img{
+			margin-left:-400px;
+		}
+		#about li:nth-child(even) div{
+			float: right;
+			margin-right: 100px;
+		}
+		#about li:nth-child(even) img{
+			margin-right: -400px;
+		}
+		#about li span{
+			width: 160px;
+			height: 160px;
+			border: 5px solid #eee;
+			border-radius: 50%;
+			color: #fff;
+			background-color: #fec503;
+			display: inline-block;
+			box-sizing: border-box;
+			padding-top: 50px;
+		}
+		#about li p{
+			font-size: 0.9em;
+			color: #777;
+		}
+		#team{
+			background-color: #f7f7f7;
+		}
+		#team>ul>li{
+			display: inline-block;
+			width: 290px;
+			margin:0 10px;
+		}
+		#team>ul>li>img{
+			border-radius: 50%;
+			border: 5px solid #fff;
+		}
+		#team>ul>li>p{
+			color: #777;
+			font-size: 0.9em;
+		}
+		#team>p{
+			width: 800px;
+			position: relative;
+			left: 50%;
+			margin-left: -400px;
+			margin-top: 80px;
+		}
+		#team>ul>li>ul>li{
+			display: inline-block;
+		}
+		#team>ul>li>ul>li>a{
+			width: 40px;
+			height: 40px;
+			background-color: #000;
+			color: #fff;
+			border-radius: 50%;
+			font-size: 20px;
+			box-sizing: border-box;
+			padding-top: 10px;
+			margin: 20px 5px;
+			transition: background-color 0.5s;
+		}
+		#team>ul>li>ul>li>a:hover{
+			background-color: #fec503;
+		}
+		body>ul{
+			font-size: 0;
+		}
+		body>ul>li{
+			display: inline-block;
+			width: 25%;
+			text-align: center;
+		}
+		#contact{
+			background: url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/map-image.png) #222;
+			-webkit-background-size: auto 100%;
+			background-size: auto 100%;
+		}
+		#contact h2{
+			color: #fff;
+		}
+		#contact table{
+			display: inline-block;
+		}
+		#contact table input[type="text"]{
+			height: 20px;
+			padding: 20px;
+			border: 1px solid #eee;
+			width: 432px;
+			border-radius: 5px;
+			margin-bottom: 15px;
+		}
+		#contact table input[type="submit"]{
+			background-color: #fed136;
+			color: #fff;
+			border-radius: 5px;
+			padding: 20px;
+			font-size: 1.3em;
+			border: none;
+		}
+		#contact table textarea{
+			height: 220px;
+			border-radius: 5px;
+			width: 450px;
+			margin-top: -10px;
+			box-sizing: border-box;
+			padding: 10px;
+			margin-left: 30px;
+		}
+		footer{
+			text-align: center;
+			padding: 25px 120px;
+			font-size: 0.8em;
+		}
+		footer p{
+			float: left;
+		}
+		footer ul{
+			display: inline-block;
+		}
+		footer ul li{
+			display: inline-block;
+		}
+		footer ul:last-child{
+			float: right;
+		}
+		footer ul:last-child a{
+			margin: 10px 0;
+			color: #fec503;
+		}
+		footer ul:last-child a:hover{
+			text-decoration: underline;
+		}
+		footer ul:nth-child(2) a{
+			font-size: 20px;
+			color: #fff;
+			width: 40px;
+			height: 40px;
+			box-sizing: border-box;
+			border-radius: 50%;
+			background-color: #222;
+			padding-top: 10px;
+			margin: -10px 10px 0 10px;
+			transition: background-color 0.5s
+		}
+		footer ul:nth-child(2) a:hover{
+			background-color: #fec503;
+		}
+	</style>
 </head>
 <body>
 	<nav>
@@ -19,31 +350,31 @@
 	<header>
 		<h2>Welcome To Our Studio!</h2>
 		<h1>IT'S NICE TO MEET YOU</h1>
-		<a>TELL ME MORE</a>
+		<a href="#">TELL ME MORE</a>
 	</header>
 	<section id="services">
 		<h2>SERVICES</h2>
 		<p>Lorem ipsum dolor sit amet consectetur.</p>
 		<ul>
 			<li>
-				<i></i>
+				<i class="fa fa-shopping-cart fa-inverse"></i>
 				<h4>E-Commerce</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
 			</li>
 			<li>
-				<i></i>
+				<i class="fa fa-laptop fa-inverse"></i>
 				<h4>Responsive Design</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
 			</li>
 			<li>
-				<i></i>
+				<i class="fa fa-lock fa-inverse"></i>
 				<h4>Web Security</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
 			</li>
 		</ul>
 	</section>
 	<section id="portfolio">
-		<h4>PORTFOLIO</h4>
+		<h2>PORTFOLIO</h2>
 		<p>Lorem ipsum dolor sit amet consectetur.</p>
 		<ul>
 			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/roundicons.png"><h4>Round Icons</h4><p>Graphic Design</p></li>
@@ -60,11 +391,23 @@
 		<h2>ABOUT</h2>
 		<p>Lorem ipsum dolor sit amet consectetur.</p>
 		<ul>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/1.jpg"><h4>2009-2011<br>Our Humble Beginnings</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/2.jpg"><h4>MARCH 2011<br>An Agency is Born</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/3.jpg"><h4>DECEMBER 2012<br>Transition to Full Service</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/4.jpg"><h4>JULY 2014<br>Phase Two Expansion</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></li>
-			<li><img alt="BE PART OF OUR STORY!"></li>
+			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/1.jpg">
+				<div>
+				<h4>2009-2011<br>Our Humble Beginnings</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+			</li>
+			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/2.jpg">
+				<div>
+				<h4>MARCH 2011<br>An Agency is Born</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+			</li>
+			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/3.jpg">
+				<div>
+				<h4>DECEMBER 2012<br>Transition to Full Service</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+			</li>
+			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/4.jpg">
+				<div>
+				<h4>JULY 2014<br>Phase Two Expansion</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+			</li>
+			<li><span>BE PART OF OUR STORY!</span></li>
 		</ul>
 	</section>
 	<section id="team">
@@ -73,23 +416,23 @@
 		<ul>
 			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/5.jpg"><h4>Kay Garland</h4><p>Lead Designer</p>
 				<ul>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
+					<li><a href="#" class="fa fa-twitter"></a></li>
+					<li><a href="#" class="fa fa-facebook"></a></li>
+					<li><a href="#" class="fa fa-linkedin"></a></li>
 				</ul>
 			</li>
 			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/6.jpg"><h4>Larry Parker</h4><p>Lead Marketer</p>
 				<ul>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
+					<li><a href="#" class="fa fa-twitter"></a></li>
+					<li><a href="#" class="fa fa-facebook"></a></li>
+					<li><a href="#" class="fa fa-linkedin"></a></li>
 				</ul>
 			</li>
 			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/7.jpg"><h4>Diana Pertersen</h4><p>Lead Developer</p>
 				<ul>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
+					<li><a href="#" class="fa fa-twitter"></a></li>
+					<li><a href="#" class="fa fa-facebook"></a></li>
+					<li><a href="#" class="fa fa-linkedin"></a></li>
 				</ul>
 			</li>
 		</ul>
@@ -125,9 +468,9 @@
 	<footer>
 		<p>Copyright © Your Website 2014</p>
 		<ul>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
+			<li><a href="#" class="fa fa-twitter"></a></li>
+			<li><a href="#" class="fa fa-facebook"></a></li>
+			<li><a href="#" class="fa fa-linkedin"></a></li>
 		</ul>
 		<ul>
 			<li><a href="#">Privacy Policy</a></li>
