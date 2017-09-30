@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2</title>
+	<style>
+		#shadow{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.2);
+			top: 0;
+			left: 0;
+		}
+		#modal{
+			position: absolute;
+			width: 400px;
+			height: 200px;
+			top: 50%;
+			left: 50%;
+			margin-top: -100px;
+			margin-left: -200px;
+			background-color: #fff;
+			text-align: center;
+		}
+		#shadow{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button id="open">点击打开模态框</button>
+	<div id="shadow">
+		<div id="modal">
+			<p>我是模态框我是模态框我是模态框我是模态框我是模态框我是模态框我是模态框我是模态框</p>
+			<button id="close">关闭</button>
+		</div>
+	</div>
+	<script>
+		document.querySelector('#open').addEventListener('click',function(){
+			document.querySelector('#shadow').style.display = 'block';
+		});
+		document.querySelector('#close').addEventListener('click',function(){
+			document.querySelector('#shadow').style.display = 'none';
+		});
+		document.querySelector('#shadow').addEventListener('click',function(e){
+			if(e.target == document.querySelector('#shadow')){
+				document.querySelector('#shadow').style.display = 'none';
+			}	
+		});
+	</script>
+</body>
+</html>

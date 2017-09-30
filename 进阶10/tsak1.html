@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task1</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+			margin: 0 auto;
+			width: 600px;
+		}
+		#tabBar{
+			width: 600px;
+			list-style: none;
+			font-size: 0;
+		}
+		#tabBar li{
+			font-size: 1rem;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-left: none;
+			box-sizing: border-box;
+			width: 200px;
+		}
+		#tabBar li:nth-child(1){
+			border-left: 1px solid #ccc;
+		}
+		.selected{
+			background-color: #eee;
+		}
+		body>div>div{
+			width: 600px;
+			border: 1px solid #ccc;
+			border-top: none;
+			box-sizing: border-box;
+			height: 500px;
+			display: none;
+		}
+		.showBox{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="tabBar">
+			<li class="selected" data-boxorder="1">Tab1</li>
+			<li data-boxorder="2">Tab2</li>
+			<li data-boxorder="3">Tab3</li>
+		</ul>
+		<div class="showBox" data-boxorder="1">Tab1</div>
+		<div data-boxorder="2">Tab2</div>
+		<div data-boxorder="3">Tab3</div>
+	</div>
+	<script>
+		document.querySelector('#tabBar').addEventListener('click',function(e){
+			if(e.target.tagName.toLowerCase() === "li"){
+				document.querySelectorAll('#tabBar li').forEach(function(li){
+					li.classList.remove('selected');
+				});
+				document.querySelectorAll('#container div').forEach(function(li){
+					li.classList.remove('showBox');
+				});
+				e.target.classList.add('selected');
+				document.querySelector('div[data-boxorder="' + e.target.getAttribute('data-boxorder') + '"]').classList.add('showBox');
+			}
+		});
+	</script>
+</body>
+</html>
