@@ -5,8 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>task1</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      text-align: center;
+    }
+    #newsList{
+      list-style: none;
+    }
+    #newsList li{
+      border:1px solid;
+    }
+    #newsList li:hover{
+      border:1px solid green;
+      background-color: green;
+      color: white;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-
+<ul id="newsList"></ul>
+<a id="loadMore" href="javascript:;">加载更多</a>
+<script>
+  var page = 1;
+  var isLoad = 1;
+  function sendAjax(){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET','/getNews?pageSize=5&page=' + page,true);
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState === 4){
+        isLoad = 1;
+        var data = JSON.parse(xhr.responseText);
+        if(data.status.statusCode === 1){
+          var fragment = document.createDocumentFragment();
+          fragment.innerHTML = "";
+          for(var i = 0;i<data.data.length;i++){
+            var newTitle = data.data[i];
+            var li = document.createElement("li");
+            li.innerHTML = newTitle;
+            fragment.appendChild(li);
+          }
+          document.querySelector('#newsList').appendChild(fragment);
+          page += 5;
+        }else(console.log("服务器错误"))
+      }
+    }
+    xhr.send();
+  }
+  sendAjax();
+  document.querySelector('#loadMore').addEventListener('click',function(){
+    if(isLoad){
+      isLoad = 0;
+      sendAjax();
+    }
+  });
+</script>
 </body>
 </html>
