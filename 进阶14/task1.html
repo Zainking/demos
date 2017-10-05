@@ -5,8 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>task1</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      line-height: 2;
+    }
+    a{
+      text-decoration: none;
+      color: #777;
+    }
+    body>ul{
+      width: 200px;
+    }
+    body>ul>li>span{
+      background-color: #c81213;
+      border: 1px solid #fff;
+      border-width:1px 0;
+      color: #fff;
+      text-align: center;
+      display: block;
+    }
+    body>ul>li{
+      position: relative;
+    }
+    body>ul>li>div{
+      position: absolute;
+      right: -200px;
+      top: 0;
+      border: 1px solid #777;
+      width: 200px;
+      text-align: center;
+      display: none;
+    }
+
+  </style>
 </head>
 <body>
-
+<ul>
+  <li>
+    <span>珠宝玉器 ></span>
+    <div>
+      <a href="#">珠宝</a>
+      <a href="#">珠宝</a><br>
+      <a href="#">珠宝</a>
+      <a href="#">珠宝</a>
+    </div>
+  </li>
+  <li>
+    <span>珠宝玉器 ></span>
+    <div>
+      <a href="#">珠宝</a>
+      <a href="#">珠宝</a><br>
+      <a href="#">珠宝</a>
+      <a href="#">珠宝</a>
+    </div>
+  </li>
+  <li>
+    <span>珠宝玉器 ></span>
+    <div>
+      <a href="#">珠宝</a>
+      <a href="#">珠宝</a><br>
+      <a href="#">珠宝</a>
+      <a href="#">珠宝</a>
+    </div>
+  </li>
+  <li>
+    <span>珠宝玉器 ></span>
+    <div>
+      <a href="#">珠宝</a>
+      <a href="#">珠宝</a><br>
+      <a href="#">珠宝</a>
+      <a href="#">珠宝</a>
+    </div>
+  </li>
+</ul>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $('ul').on('mouseenter','li',function(){
+    $(this).children('div').show();
+  });
+  $('ul').on('mouseleave','li',function(){
+    $(this).children('div').hide();
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>task3</title>
+  <style>
+    ul{
+      list-style: none;
+    }
+    li{
+      display: inline-block;
+      width: 200px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      position: relative;
+    }
+    img{
+      display: block;
+      margin: 0 auto;
+    }
+    .price{
+      color: #f00;
+    }
+  </style>
+</head>
+<body>
+  <article>
+  <ul>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+  </ul>
+  </article>
+  <a href="javascript:;">加载更多</a>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  var products = [
+    {
+      img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+      name: '珂兰 黄金手 猴哥款',
+      price: '￥405.00'
+    },{
+      img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+      name: '珂兰 黄金转运珠 猴哥款',
+      price: '￥100.00'
+    },{
+      img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+      name: '珂兰 黄金手链 3D猴哥款',
+      price: '￥45.00'
+    }
+    ];
+    $("a").on('click',function(){
+      var str = "<ul>"
+      for(var i = 0; i < products.length;i++){
+        str += '<li><img src="'+ products[i].img +'"><h4>' + products[i].name + '</h4><p class="price">' + products[i].price + '</p></li>';
+      }
+      str += "</ul>";
+      $("article").append(str);
+    });
+  </script>
+</body>
+</html>

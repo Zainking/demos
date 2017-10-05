@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>task2</title>
+  <style>
+    ul{
+      list-style: none;
+    }
+    .tabdiv li{
+      display: inline-block;
+      width: 200px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      position: relative;
+    }
+    .shadow{
+      position: absolute;
+      height:100%;
+      z-index: 1;
+      background-color: rgba(0,0,0,0.2);
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .shadow button{
+      margin-top: 100px;
+      background: #fff;
+      border: 1px solid #c81213;
+      color: #c81213;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    .tabdiv li img{
+      display: block;
+      margin: 0 auto;
+    }
+    .tab{
+      display: inline-block;
+      padding: 20px;
+    }
+    .tab a{
+      text-decoration: none;
+      color: #777;
+    }
+    .tab:nth-child(1){
+      background-color: #ccc;
+    }
+    .price{
+      color: #f00;
+    }
+    .tabdiv{
+      border: 1px solid #ccc;
+      width: 800px;
+      display: none;
+    }
+    .tabdiv[data-tab="1"]{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li class="tab" data-tab="1"><a href="javascript:;">翡翠玉石</a></li>
+  <li class="tab" data-tab="2"><a href="javascript:;">黄金</a></li>
+  <li class="tab" data-tab="3"><a href="javascript:;">珠宝</a></li>
+</ul>
+<div class="tabdiv" data-tab="1">
+  <ul>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+    <li>
+      <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+      <h4>珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝</h4>
+      <p class="price">$19988</p>
+    </li>
+  </ul>
+</div>
+<div class="tabdiv" data-tab="2">这里是TAB2</div>
+<div class="tabdiv" data-tab="3">这里是TAB3</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(".tab").on('click',function(){
+    $(".tab").css("background-color","#fff");
+    $(".tabdiv").hide();
+    $(this).css('background-color','#ccc');
+    $(".tabdiv[data-tab='" + $(this).attr('data-tab') + "']").show();
+  });
+  $(".tabdiv li").on('mouseenter',function(){
+    $(this).append("<div class=shadow><button>点击购买</button></div>");
+  })
+  $(".tabdiv li").on('mouseleave',function(){
+    $(this).children(".shadow").remove();
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>task4</title>
+  <style>
+    .mod-tab {
+      border: 1px solid #ccc;
+      margin-top: 30px;
+    }
+    .mod-tab * {
+      box-sizing: border-box;
+    }
+    .mod-tab ul,
+    .mod-tab li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .mod-tab .tabs:after {
+      content: '';
+      height: 0;
+      display: table;
+      clear: both;
+    }
+    .mod-tab .tabs li {
+      float: left;
+      width: 33.3%;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .mod-tab .tabs li:last-child {
+      border-right: none;
+    }
+    .mod-tab .tabs .active {
+      background: #eee;
+    }
+    .mod-tab .wrap {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+    .mod-tab .panels {
+      position: absolute;
+      width: 100%;
+    }
+    .mod-tab .panels>li {
+      height: 180px;
+      padding: 20px;
+      float: left;
+      width:100%;
+      position: absolute;
+      top: 0;
+    }
+    .mod-tab .panels>li:nth-child(1) {
+      background-color: red;
+    }
+    .mod-tab .panels>li:nth-child(2) {
+      background-color: green;
+      left: 100%;
+    }
+    .mod-tab .panels>li:nth-child(3) {
+      background-color: blue;
+      left: 200%;
+    }
+    .mod-tab .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="mod-tab">
+   <ul class="tabs">
+     <li class="active">tab1</li>
+     <li class="">tab2</li>
+     <li class="">tab3</li>
+   </ul>
+   <div class="wrap">
+     <ul class="panels" style="top: 0px;">
+       <li>content 1</li>
+       <li>content 2</li>
+       <li>content 3</li>
+     </ul>
+   </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  $('.tabs>li').on('click', function(){
+    var $this = $(this);
+    var index = $this.index();
+    var panelWidth = $('.mod-tab .wrap').width();
+    $this.addClass('active').siblings().removeClass('active');
+    $this.parents('.mod-tab').find('.panels')
+         .animate({left: -panelWidth*index});
+  });
+</script>
+</body>
+</html>
