@@ -5,8 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>task1</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      text-align: center;
+    }
+    ul{
+      list-style: none;
+    }
+    img{
+      width: 500px;
+      border: 1px solid;
+    }
+  </style>
 </head>
 <body>
-
+  <h1>我的一些神奇画作</h1>
+  <ul id="imgList">
+    <li><img src='http://img1.zain.red/item/loading.jpg' data-src='http://img1.zain.red/10.6/1.jpg'></li>
+    <li><img src='http://img1.zain.red/item/loading.jpg' data-src='http://img1.zain.red/10.6/2.jpg'></li>
+    <li><img src='http://img1.zain.red/item/loading.jpg' data-src='http://img1.zain.red/10.6/3.jpg'></li>
+    <li><img src='http://img1.zain.red/item/loading.jpg' data-src='http://img1.zain.red/10.6/4.jpg'></li>
+    <li><img src='http://img1.zain.red/item/loading.jpg' data-src='http://img1.zain.red/10.6/5.jpg'></li>
+    <li><img src='http://img1.zain.red/item/loading.jpg' data-src='http://img1.zain.red/10.6/6.jpg'></li>
+    <li><img src='http://img1.zain.red/item/loading.jpg' data-src='http://img1.zain.red/10.7/1.jpg'></li>
+  </ul>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function isVisible($node){
+      return ($node.offset().top > $(window).scrollTop() && $node.offset().top < ($(window).scrollTop() + $(window).height()));
+    }
+    function isLoad($node){
+      return $node.attr('src') === $node.attr('data-src');
+    }
+    function loadImg(){
+      $("#imgList img").each(function(){
+        if(isVisible($(this)) && !isLoad($(this))){
+          $(this).attr('src',$(this).attr('data-src'));
+        }
+      });
+    }
+    loadImg();
+    $(window).on('scroll',function(){
+      if(time){
+        clearTimeout(time);
+      }
+      var time = setTimeout(function(){
+        loadImg();
+      },300);
+    });
+  </script>
 </body>
 </html>
