@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>task1</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      list-style: none;
+    }
+    .imgList{
+      font-size: 0;
+      /*width: 1280px;*/
+      position: absolute;
+    }
+    .imgList li{
+      display: inline-block;
+    }
+    .container{
+      width: 320px;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .navList{
+      position: absolute;
+      bottom: 5px;
+      z-index: 1;
+      font-size: 0;
+      text-align: center;
+      width: 100%;
+    }
+    .navList li{
+      display: inline-block;
+      margin: 0 3px;
+      width:10px;
+      height: 5px;
+      background-color: #fff;
+    }
+    .navList li.active{
+      background-color: #ffA500;
+    }
+    .prev,.next{
+      display: inline-block;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      z-index: 1;
+      top: 50%;
+      margin-top: -27px;
+      text-decoration: none;
+      color: #fff;
+      line-height: 30px;
+      text-align: center;
+    }
+    .prev:hover,.next:hover{
+      border: 2px solid #ffa500;
+      color: #ffa500;
+    }
+    .prev{
+      left: 10px;
+    }
+    .next{
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="imgList">
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=0"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=100"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=200"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=300"></a></li>
+    </ul>
+    <ul class="navList">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <a class="prev" href="javascript:;">&lt;</a>
+    <a class="next" href="javascript:;">&gt;</a>
+  </div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var _CURRENT_PAGE = 0;
+  var isAnimated = false;
+
+  var $lastImg = $('.imgList li:last-child').clone();
+  var $firstImg = $('.imgList li:first-child').clone();
+
+  $('.imgList').css('width',($('.imgList li').length + 2)*$('.imgList li img').width());
+  $('.imgList').append($firstImg).prepend($lastImg).css('left','-' + $('.imgList li img').css('width'));
+
+  function next(){
+    if(isAnimated){
+      return false;
+    }
+    isAnimated = true;
+    if(_CURRENT_PAGE < $('.imgList li').length -3){
+      _CURRENT_PAGE++;
+      $('.imgList').animate({left: parseInt($('.imgList').css('left')) - parseInt($('.imgList li img').css('width')) + 'px'},function(){
+        isAnimated = false;
+      });
+    }else{
+      _CURRENT_PAGE = 0;
+      $('.imgList').animate({left: parseInt($('.imgList').css('left')) - parseInt($('.imgList li img').css('width')) + 'px'},function(){
+        $('.imgList').css('left','-' + $('.imgList li img').css('width'));
+        isAnimated = false;
+      });
+    }
+    refreshNav();
+  }
+  function previous(){
+    if(isAnimated){
+      return false;
+    }
+    isAnimated = true;
+    if(_CURRENT_PAGE > 0){
+      _CURRENT_PAGE--;
+      $('.imgList').animate({left: parseInt($('.imgList').css('left')) + parseInt($('.imgList li img').css('width')) + 'px'},function(){
+        isAnimated = false;
+      });
+    }else{
+      _CURRENT_PAGE = $('.imgList li').length -3;
+      $('.imgList').animate({left: parseInt($('.imgList').css('left')) + parseInt($('.imgList li img').css('width')) + 'px'},function(){
+        $('.imgList').css('left','-' + $('.imgList li img').width()*($('.imgList li').length - 2) + 'px');
+        isAnimated = false;
+      });
+    }
+    refreshNav();
+  }
+  function goto(pageNum){
+    if(isAnimated){
+      return false;
+    }
+    isAnimated = true;
+    _CURRENT_PAGE = pageNum - 1;
+    $('.imgList').animate({left : '-' + $('.imgList li img').width()*pageNum +'px'},function(){
+      isAnimated = false;
+    });
+    refreshNav();
+  }
+  function refreshNav(){
+    $(".navList li").removeClass('active');
+    $(".navList li:nth-child(" + (_CURRENT_PAGE + 1) + ")").addClass('active');
+  }
+  $(".prev").on('click',function(){
+    previous();
+  });
+  $(".next").on('click',function(){
+    next();
+  });
+  $('.navList').on('click','li',function(){
+    goto($(this).index() + 1);
+  })
+
+
+</script>
+</body>
+</html>
