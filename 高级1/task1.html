@@ -64,22 +64,10 @@
         }
       },
       renderImg : function(img){
-        if(this.currentWidth + img.width <= this.$ct.width()){
-          $(img).css('left', this.currentWidth);
-          $(img).css('top', this.currentHeight);
-          this.currentWidth += img.width;
-          this.currentColum.push(img);
-          this.$ct.append(img);
+        if(this.currentWidth + img.width <= this.$ct.width() || this.currentWidth === 0){
+
         }else if(this.currentWidth + img.width > this.$ct.width()){
-          var self = this;
-          this.currentColum.forEach(function(val){
-            val.height = self.$ct.width() / self.currentWidth * val.height;
-          });
-          this.currentHeight += this.currentColum[0].height;
-          this.currentWidth = 0;
-          this.currentColum = [];
-          this.renderImg(img);
-        }
+
       }
     };
     new Barrel($("#container"), 12);
