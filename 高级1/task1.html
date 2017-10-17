@@ -5,8 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>task1</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #container{
+      width: 350px;
+      margin: 0 auto;
+      position: relative;
+    }
+    #container img{
+      position: absolute;
+    }
+  </style>
 </head>
 <body>
+  <div id="container"></div>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function Barrel($ct, num){
+      this.$ct = $ct;
+      this.num = num;
+      this.imgUrls = [];
+      this.imgs = [];
+      this._ORIGIN_HEIGHT = 200;
 
+      this.currentWidth = 0;
+      this.currentHeight = 0;
+      this.currentColum = [];
+
+      this.imgUrls = this.getImgUrl(this.num);
+      this.imgs = this.loadImg(this.imgUrls);
+    }
+    Barrel.prototype = {
+      getImgUrl : function(num){
+        var arr = [];
+        var imageWidth = 0;
+        var imageHeight = 0;
+        for(var i = 0; i < num;i++){
+          imageWidth = Math.floor( 50 + Math.random() * 100 );
+          imageHeight = Math.floor( 50 + Math.random() * 100 );
+          arr.push("https://picsum.photos/"+ imageWidth +"/"+ imageHeight +"/?random");
+        }
+        return arr;
+      },
+      loadImg : function(imgUrls){
+        var img = {};
+        for(var i = 0;i < imgUrls.length;i++){
+          img = new Image();
+          self = this;
+
+          img.src = imgUrls[i];
+          img.height = this._ORIGIN_HEIGHT;
+          img.onload = function(){
+            self.renderImg(this);
+          };
+        }
+      },
+      renderImg : function(img){
+        if(this.currentWidth + img.width <= this.$ct.width()){
+          $(img).css('left', this.currentWidth);
+          $(img).css('top', this.currentHeight);
+          this.currentWidth += img.width;
+          this.currentColum.push(img);
+          this.$ct.append(img);
+        }else if(this.currentWidth + img.width > this.$ct.width()){
+          var self = this;
+          this.currentColum.forEach(function(val){
+            val.height = self.$ct.width() / self.currentWidth * val.height;
+          });
+          this.currentHeight += this.currentColum[0].height;
+          this.currentWidth = 0;
+          this.currentColum = [];
+          this.renderImg(img);
+        }
+      }
+    };
+    new Barrel($("#container"), 12);
+  </script>
 </body>
 </html>
