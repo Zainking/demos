@@ -29,7 +29,7 @@
       this.num = num;
       this.imgUrls = [];
       this.imgs = [];
-      this._ORIGIN_HEIGHT = 200;
+      this._ORIGIN_HEIGHT = 150;
 
       this.currentWidth = 0;
       this.currentHeight = 0;
@@ -64,10 +64,22 @@
         }
       },
       renderImg : function(img){
-        if(this.currentWidth + img.width <= this.$ct.width() || this.currentWidth === 0){
-
-        }else if(this.currentWidth + img.width > this.$ct.width()){
-
+        var self = this;
+        this.currentColum.push(img);
+        $(img).css('left', self.currentWidth);
+        $(img).css('top', self.currentHeight);
+        this.$ct.append(img);
+        this.currentWidth += img.width;
+        if(this.currentWidth + img.width > this.$ct.width()){
+          var k = this.$ct.width() / this.currentWidth;
+          this.currentColum.forEach(function(val){
+            val.height = val.height * k;
+            $(val).css('left',parseInt($(val).css('left')) * k);
+          });
+          this.currentHeight += this.currentColum[0].height;
+          this.currentColum = [];
+          this.currentWidth = 0;
+        };
       }
     };
     new Barrel($("#container"), 12);
