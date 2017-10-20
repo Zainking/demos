@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>task1</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      list-style: none;
+    }
+    .imgList{
+      font-size: 0;
+      position: absolute;
+    }
+    .imgList li{
+      display: inline-block;
+    }
+    #container,#container2{
+      width: 320px;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .navList{
+      position: absolute;
+      bottom: 5px;
+      z-index: 1;
+      font-size: 0;
+      text-align: center;
+      width: 100%;
+    }
+    .navList li{
+      display: inline-block;
+      margin: 0 3px;
+      width:10px;
+      height: 5px;
+      background-color: #fff;
+    }
+    .navList li.active{
+      background-color: #ffA500;
+    }
+    .prev,.next{
+      display: inline-block;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      z-index: 1;
+      top: 50%;
+      margin-top: -27px;
+      text-decoration: none;
+      color: #fff;
+      line-height: 30px;
+      text-align: center;
+    }
+    .prev:hover,.next:hover{
+      border: 2px solid #ffa500;
+      color: #ffa500;
+    }
+    .prev{
+      left: 10px;
+    }
+    .next{
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <ul class="imgList">
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=0"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=100"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=200"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=300"></a></li>
+    </ul>
+    <ul class="navList">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <a class="prev" href="javascript:;">&lt;</a>
+    <a class="next" href="javascript:;">&gt;</a>
+  </div>
+  <div id="container2">
+    <ul class="imgList">
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=0"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=100"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=200"></a></li>
+      <li><a href="javascript:;"><img src="https://unsplash.it/320/180?image=300"></a></li>
+    </ul>
+    <ul class="navList">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <a class="prev" href="javascript:;">&lt;</a>
+    <a class="next" href="javascript:;">&gt;</a>
+  </div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function Carousel($ct, width){
+  this.$ct = $ct;
+  this.width = width;
+
+  this.init();
+  this.bind();
+}
+
+Carousel.prototype.init = function(){
+  this.currentPage = 0;
+  this.isAnimated = false;
+  this.pageNum = this.$ct.find('.imgList li').length;
+
+  var $firstPage = this.$ct.find('.imgList li:first-child').clone(),
+      $lastPage = this.$ct.find('.imgList li:last-child').clone();
+
+  this.$ct.find('.imgList').prepend($lastPage);
+  this.$ct.find('.imgList').append($firstPage);
+
+  this.$ct.find('.imgList li img').width(this.width);
+  this.$ct.width(this.width);
+
+  this.$ct.find('.imgList').width(this.width * this.$ct.find('.imgList li').length);
+  this.$ct.find('.imgList').css('left', -this.width);
+};
+Carousel.prototype.bind = function(){
+  var self = this;
+  this.$ct.find('.prev').on('click',function(){
+    if(!self.isAnimated){
+      self.prev();
+    }
+  });
+  this.$ct.find('.next').on('click',function(){
+    if(!self.isAnimated){
+      self.next();
+    }
+  });
+  this.$ct.find('.navList').on('click','li',function(){
+    if(!self.isAnimated){
+      self.goto($(this).index());
+    }
+  })
+};
+Carousel.prototype.next = function(){
+  this.isAnimated = true;
+  this.currentPage++;
+  var self = this;
+  this.$ct.find('.imgList').animate({'left' : '-=' + this.width},function(){
+    self.isAnimated = false;
+    if(self.currentPage >= self.pageNum){
+      self.$ct.find('.imgList').css('left', -self.width);
+      self.currentPage = 0;
+    }
+    self.refreshNav();
+  });
+};
+Carousel.prototype.prev = function(){
+  this.isAnimated = true;
+  this.currentPage--;
+  var self = this;
+  this.$ct.find('.imgList').animate({'left' : '+=' + this.width},function(){
+    self.isAnimated = false;
+    if(self.currentPage < 0){
+      self.$ct.find('.imgList').css('left', -self.width*self.pageNum);
+      self.currentPage = self.pageNum - 1;
+    }
+    self.refreshNav();
+  });
+};
+Carousel.prototype.goto = function(page){
+  this.isAnimated = true;
+  this.currentPage = page;
+  var self = this;
+  this.$ct.find('.imgList').animate({'left' : -self.width - page*self.width},function(){
+    self.isAnimated = false;
+    self.refreshNav();
+  });
+};
+Carousel.prototype.refreshNav = function(){
+  this.$ct.find('.navList li').removeClass('active');
+  this.$ct.find('.navList li').eq(this.currentPage).addClass('active');
+};
+
+new Carousel($('#container'), 320);
+new Carousel($('#container2'), 320);
+</script>
+</body>
+</html>
