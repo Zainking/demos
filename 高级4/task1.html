@@ -39,6 +39,7 @@
 			min-width: 970px;
 			padding: 30px 50px;
 			box-sizing: border-box;
+			z-index: 2;
 		}
 		nav h1{
 			color: #fec503;
@@ -82,7 +83,7 @@
 			color: #fff;
 			margin-bottom: 50px;
 		}
-		header a{
+		header a.btn{
 			color: #fff;
 			background-color: #fed136;
 			padding: 20px 40px;
@@ -334,6 +335,82 @@
 		footer ul:nth-child(2) a:hover{
 			background-color: #fec503;
 		}
+    .target{
+      width:50px;
+      height:50px;
+      background-color: #eee;
+      line-height: 50px;
+      text-align: center;
+      font-size: 35px;
+      font-weight: 700;
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      cursor: pointer;
+    }
+    .target:hover{
+      background-color: #000;
+      color: #fff;
+    }
+		header ul{
+			list-style: none;
+		}
+		header .imgList{
+			font-size: 0;
+			position: absolute;
+			top: 0;
+		}
+		header .imgList li{
+			display: inline-block;
+		}
+		header{
+			overflow: hidden;
+			position: relative;
+			z-index: 0;
+		}
+		header .navList{
+			position: absolute;
+			bottom: 5px;
+			z-index: 1;
+			font-size: 0;
+			text-align: center;
+			width: 100%;
+		}
+		header .navList li{
+			display: inline-block;
+			margin: 0 3px;
+			width:10px;
+			height: 5px;
+			background-color: #fff;
+		}
+		header .navList li.active{
+			background-color: #ffA500;
+		}
+		header .prev,header .next{
+			display: inline-block;
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			border: 2px solid #fff;
+			border-radius: 50%;
+			z-index: 1;
+			top: 50%;
+			margin-top: -27px;
+			text-decoration: none;
+			color: #fff;
+			line-height: 30px;
+			text-align: center;
+		}
+		header .prev:hover,header .next:hover{
+			border: 2px solid #ffa500;
+			color: #ffa500;
+		}
+		header .prev{
+			left: 10px;
+		}
+		header .next{
+			right: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -348,9 +425,19 @@
 		</ul>
 	</nav>
 	<header>
+		<ul class="imgList">
+			<li><a href="javascript:;"><img src="https://unsplash.it/1900/1250?image=0"></a></li>
+			<li><a href="javascript:;"><img src="https://unsplash.it/1900/1250?image=100"></a></li>
+		</ul>
+		<ul class="navList">
+			<li class="active"></li>
+			<li></li>
+		</ul>
+		<a class="prev" href="javascript:;">&lt;</a>
+		<a class="next" href="javascript:;">&gt;</a>
 		<h2>Welcome To Our Studio!</h2>
 		<h1>IT'S NICE TO MEET YOU</h1>
-		<a href="#">TELL ME MORE</a>
+		<a class="btn" href="#">TELL ME MORE</a>
 	</header>
 	<section id="services">
 		<h2>SERVICES</h2>
@@ -377,33 +464,33 @@
 		<h2>PORTFOLIO</h2>
 		<p>Lorem ipsum dolor sit amet consectetur.</p>
 		<ul>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/roundicons.png"><h4>Round Icons</h4><p>Graphic Design</p></li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/startup-framework.png"><h4>Startup Framework</h4><p>Website Design</p></li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/treehouse.png"><h4>Treehouse</h4><p>Website Design</p></li>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/roundicons.png"><h4>Round Icons</h4><p>Graphic Design</p></li>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/startup-framework.png"><h4>Startup Framework</h4><p>Website Design</p></li>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/treehouse.png"><h4>Treehouse</h4><p>Website Design</p></li>
 		</ul>
 		<ul>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/golden.png"><h4>Golden</h4><p>Website Design</p></li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/escape.png"><h4>Escape</h4><p>Website Design</p></li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/dreams.png"><h4>Dreams</h4><p>Website Design</p></li>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/golden.png"><h4>Golden</h4><p>Website Design</p></li>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/escape.png"><h4>Escape</h4><p>Website Design</p></li>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/portfolio/dreams.png"><h4>Dreams</h4><p>Website Design</p></li>
 		</ul>
 	</section>
 	<section id="about">
 		<h2>ABOUT</h2>
 		<p>Lorem ipsum dolor sit amet consectetur.</p>
 		<ul>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/1.jpg">
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/1.jpg">
 				<div>
 				<h4>2009-2011<br>Our Humble Beginnings</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
 			</li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/2.jpg">
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/2.jpg">
 				<div>
 				<h4>MARCH 2011<br>An Agency is Born</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
 			</li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/3.jpg">
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/3.jpg">
 				<div>
 				<h4>DECEMBER 2012<br>Transition to Full Service</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
 			</li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/4.jpg">
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/4.jpg">
 				<div>
 				<h4>JULY 2014<br>Phase Two Expansion</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
 			</li>
@@ -414,21 +501,21 @@
 		<h2>OUR AMAZING TEAM</h2>
 		<p>Lorem ipsum dolor sit amet consectetur.</p>
 		<ul>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/5.jpg"><h4>Kay Garland</h4><p>Lead Designer</p>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/5.jpg"><h4>Kay Garland</h4><p>Lead Designer</p>
 				<ul>
 					<li><a href="#" class="fa fa-twitter"></a></li>
 					<li><a href="#" class="fa fa-facebook"></a></li>
 					<li><a href="#" class="fa fa-linkedin"></a></li>
 				</ul>
 			</li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/6.jpg"><h4>Larry Parker</h4><p>Lead Marketer</p>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/6.jpg"><h4>Larry Parker</h4><p>Lead Marketer</p>
 				<ul>
 					<li><a href="#" class="fa fa-twitter"></a></li>
 					<li><a href="#" class="fa fa-facebook"></a></li>
 					<li><a href="#" class="fa fa-linkedin"></a></li>
 				</ul>
 			</li>
-			<li><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/7.jpg"><h4>Diana Pertersen</h4><p>Lead Developer</p>
+			<li><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/7.jpg"><h4>Diana Pertersen</h4><p>Lead Developer</p>
 				<ul>
 					<li><a href="#" class="fa fa-twitter"></a></li>
 					<li><a href="#" class="fa fa-facebook"></a></li>
@@ -439,10 +526,10 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
 	</section>
 	<ul>
-		<li><a href="#"><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/logos/envato.jpg"></a></li>
-		<li><a href="#"><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/logos/designmodo.jpg"></a></li>
-		<li><a href="#"><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/logos/themeforest.jpg"></a></li>
-		<li><a href="#"><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/logos/creative-market.jpg"></a></li>
+		<li><a href="#"><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/logos/envato.jpg"></a></li>
+		<li><a href="#"><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/logos/designmodo.jpg"></a></li>
+		<li><a href="#"><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/logos/themeforest.jpg"></a></li>
+		<li><a href="#"><img src="http://img1.zain.red/item/loading.jpg" data-src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/logos/creative-market.jpg"></a></li>
 	</ul>
 	<section id="contact">
 		<h2>CONTACT US</h2>
@@ -477,5 +564,6 @@
 			<li><a href="#">Terms of Use</a></li>
 		</ul>
 	</footer>
+  <script data-main="src/main" src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
 </body>
 </html>
