@@ -5,8 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .image {
+      width: 600px;
+      height: 450px;
+      text-align: center;
+      margin: 0 auto;
+      background: url(http://gb.cri.cn/mmsource/images/2015/04/16/eb1504160050.jpg);
+    }
+    .image::before, .image::after{
+      position: absolute;
+      width: 300px;
+      height: 450px;
+      content: '';
+    }
+    .image::before{
+      left: 50%;
+      margin-left: -300px;
+      background: linear-gradient(to right, rgba(0, 255, 255, 0.1), rgba(255, 255, 0, 0.1));
+    }
+    .image::after{
+      right: 50%;
+      margin-right: -300px;
+      background: linear-gradient(to right, rgba(255, 0, 0, 0.1), rgba(0, 0, 255, 0.1));
+    }
+  </style>
 </head>
 <body>
-
+  <div class='image'></div>
 </body>
 </html>

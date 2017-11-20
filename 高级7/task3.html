@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    .content{
+      width: 200px;
+      margin: 0 auto;
+      background-color: #0ae;
+      height: 500px;
+      padding: 50px;
+      text-align: center;
+      font-size: 0;
+      position: relative;
+    }
+    .div1,.div1::before,.div1::after{
+      background: #FFF;
+      animation: loading1 1s infinite;
+      width: 10px;
+      height: 80px;
+      position: absolute;
+      left: 50%;
+      top: 80px;
+    }
+    .div1{
+      margin-left: -5px;
+      animation-delay: 0.05s;
+    }
+    .div1::before,.div1::after{
+      content: '';
+      top: 0;
+    }
+    .div1::before{
+      margin-left: -25px;
+      animation-delay: 0s;
+    }
+    .div1::after{
+      margin-left: 15px;
+      animation-delay: 0.1s;
+    }
+    @keyframes loading1 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 0 #fff;
+        height: 80px;
+      }
+      10% {
+        box-shadow: 0 -80px #fff;
+        height: 120px;
+      }
+    }
+    .div2{
+      width: 100px;
+      height: 100px;
+      border: 10px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      margin-left: -60px;
+      border-top-color: #fff;
+      bottom: 50px;
+      animation: loading2 1s infinite linear;
+    }
+    @keyframes loading2 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+<div class="content">
+  <div class="div1"></div>
+  <div class="div2"></div>
+</div>
+</body>
+</html>
